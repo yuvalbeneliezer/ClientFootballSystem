@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import Controllers.RequiredField?>
+<?import Controllers.ErrorLabel?>
+<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CreateTeamController">
+   <left>
+      <AnchorPane prefHeight="625.0" prefWidth="1000.0" styleClass="root" stylesheets="@common-styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="133.0" prefHeight="285.0" prefWidth="921.0" styleClass="container">
+               <children>
+                  <AnchorPane layoutY="1.0" prefHeight="10.0" prefWidth="921.0" styleClass="container-header" AnchorPane.bottomAnchor="276.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
+                  <AnchorPane layoutY="275.0" prefHeight="10.0" prefWidth="950.0" styleClass="container-footer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <ComboBox fx:id="cmbFieldType" layoutX="504.0" layoutY="165.0" prefHeight="25.0" prefWidth="173.0" promptText="Home Field" styleClass="combo-box" />
+                  <Text fill="WHITE" layoutX="505.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Team's Home Field">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="501.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select  a league">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="618.0" layoutY="215.0" onAction="#clickOnCreateTeam" prefHeight="25.0" prefWidth="163.0" styleClass="button-green" text="Create !">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Text fill="WHITE" layoutX="93.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREAT A NEW TEAM" textAlignment="CENTER" wrappingWidth="291.919189453125">
+                     <font>
+                        <Font name="Calibri Bold" size="55.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="cmbLeagueType2" layoutX="501.0" layoutY="102.0" prefHeight="25.0" prefWidth="177.0" promptText="League" styleClass="combo-box" />
+                  <TextField fx:id="teamName" alignment="TOP_LEFT" layoutX="502.0" layoutY="36.0" prefHeight="31.0" prefWidth="177.0" promptText="Enter Team Name">
+                     <font>
+                        <Font name="Calibri" size="16.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="cmbSeasonType21" layoutX="694.0" layoutY="102.0" prefHeight="25.0" prefWidth="174.0" promptText="season" styleClass="combo-box" />
+                  <Text fill="WHITE" layoutX="694.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select  a season">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="teamBudget" alignment="TOP_LEFT" layoutX="692.0" layoutY="160.0" prefHeight="31.0" prefWidth="177.0" promptText="Insert your team's budget">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="WHITE" layoutX="125.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill in the following details. Only one more step towards your dreamy team!" textAlignment="CENTER" wrappingWidth="210.95883178710938">
+                     <font>
+                        <Font name="Calibri Bold" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Text fill="WHITE" layoutX="404.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEAM MANAGEMENT">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+
+
+         <fx:define>
+
+            <RequiredField fx:id="requiredField2" >
+               <srcControl>
+                  <fx:reference source="teamName"/>
+               </srcControl>
+            </RequiredField>
+            <RequiredField fx:id="requiredField3" >
+               <srcControl>
+                  <fx:reference source="cmbLeagueType2"/>
+               </srcControl>
+            </RequiredField>
+            <RequiredField fx:id="requiredField4" >
+               <srcControl>
+                  <fx:reference source="teamBudget"/>
+               </srcControl>
+            </RequiredField>
+
+            <RequiredField fx:id="requiredField5" >
+               <srcControl>
+                  <fx:reference source="cmbFieldType"/>
+               </srcControl>
+            </RequiredField>
+
+            <RequiredField fx:id="requiredField6" >
+               <srcControl>
+                  <fx:reference source="cmbSeasonType21"/>
+               </srcControl>
+            </RequiredField>
+
+         </fx:define>
+         <ErrorLabel layoutX="520.0" layoutY="200.0" message="Please select a team" styleClass="first-error">
+            <validator>
+               <fx:reference source="requiredField2"/>
+            </validator>
+         </ErrorLabel>
+
+         <ErrorLabel layoutX="520.0" layoutY="260.0" message="Please select a League" styleClass="first-error">
+            <validator>
+               <fx:reference source="requiredField3"/>
+            </validator>
+         </ErrorLabel>
+         <ErrorLabel layoutX="710.0" layoutY="325.0" message="Please enter your budget" styleClass="first-error">
+            <validator>
+               <fx:reference source="requiredField4"/>
+            </validator>
+         </ErrorLabel>
+
+         <ErrorLabel layoutX="520.0" layoutY="325.0" message="Please select your home field" styleClass="first-error" >
+            <validator>
+               <fx:reference source="requiredField5"/>
+            </validator>
+         </ErrorLabel>
+
+         <ErrorLabel layoutX="710.0" layoutY="260.0" message="Please enter the season" styleClass="first-error">
+            <validator>
+               <fx:reference source="requiredField6"/>
+            </validator>
+         </ErrorLabel>
+      </AnchorPane>
+   </left>
+</BorderPane>

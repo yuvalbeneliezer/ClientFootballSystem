@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootMenu" prefHeight="625.0" prefWidth="1000.0" styleClass="background" stylesheets="@common-styles.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainPageController">
+   <children>
+      <Button fx:id="manageTeamBtn" onAction="#manageTeamClick" contentDisplay="TOP" defaultButton="true" layoutX="107.0" layoutY="146.0" prefHeight="320.0" prefWidth="190.0" styleClass="container-green" text="Manage Team" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="http://icons.iconarchive.com/icons/aha-soft/people/128/footballer-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="manageGameBtn" onAction="#manageGameClick" contentDisplay="TOP" layoutX="384.0" layoutY="146.0" prefHeight="320.0" prefWidth="190.0" styleClass="container-green" text="Manage Game" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="http://icons.iconarchive.com/icons/iconshock/soccer/128/soccer-2-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="managePolicyBtn" onAction="#managePolicyClick" contentDisplay="TOP" layoutX="658.0" layoutY="145.0" prefHeight="321.0" prefWidth="190.0" styleClass="container-green" text="Manage Policy" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="http://icons.iconarchive.com/icons/ergosign/soccer-worldcup-2010/128/soccer-referee-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import Controllers.RequiredField?>
+<?import Controllers.ErrorLabel?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ManageTeamController">
+   <top>
+      <AnchorPane prefHeight="625.0" prefWidth="1000.0" styleClass="root" stylesheets="@common-styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="39.0" layoutY="56.0" prefHeight="285.0" prefWidth="921.0" styleClass="container">
+               <children>
+                  <AnchorPane layoutY="1.0" prefHeight="10.0" prefWidth="921.0" styleClass="container-header" AnchorPane.bottomAnchor="276.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
+                  <AnchorPane layoutY="275.0" prefHeight="10.0" prefWidth="950.0" styleClass="container-footer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Button fx:id="addTP" layoutX="13.0" layoutY="141.0" onAction="#addTeamProp" prefHeight="25.0" prefWidth="163.0" styleClass="button-green" text="Add Team Property">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="editTP" layoutX="183.0" layoutY="141.0" onAction="#editTeamProp" prefHeight="25.0" prefWidth="165.0" styleClass="button-green" text="Edit Team Property">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="removeTP" layoutX="14.0" layoutY="224.0" onAction="#removeTeamProp" prefHeight="25.0" prefWidth="163.0" styleClass="button-green" text="Remove Team Property">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="closeTeam" onAction="#closeTeam" layoutX="356.0" layoutY="182.0" prefHeight="78.0" prefWidth="161.0" styleClass="button-red" text="Close Team">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="cmbTeamNameType" layoutX="13.0" layoutY="63.0" onAction="#teamNameCBChoose" prefHeight="25.0" prefWidth="242.0" promptText="Teams" styleClass="combo-box" />
+                  <Text fill="WHITE" layoutX="96.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Team">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="imgVehicle" fitHeight="140.0" fitWidth="255.0" layoutX="631.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="WHITE" layoutX="225.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Action">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="removeTM" onAction="#removeTeamManager" layoutX="183.0" layoutY="224.0" prefHeight="25.0" prefWidth="165.0" styleClass="button-green" text="Remove Team Manager">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="nominateTM" onAction="#nominateTeamManager" layoutX="13.0" layoutY="182.0" prefHeight="25.0" prefWidth="163.0" styleClass="button-green" text="Nominate Team Manager">
+                     <font>
+                        <Font name="Calibri Bold" size="13.5" />
+                     </font>
+                  </Button>
+                  <Button fx:id="removeTO" onAction="#removeTeamOwner" layoutX="355.0" layoutY="224.0" prefHeight="25.0" prefWidth="163.0" styleClass="button-green" text="Remove Team Owner">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="nominateTO" onAction="#nominateTeamOwner" layoutX="184.0" layoutY="182.0" prefHeight="25.0" prefWidth="164.0" styleClass="button-green" text="Nominate Team Owner">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Text fill="WHITE" layoutX="588.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXISTING TEAM" textAlignment="CENTER" wrappingWidth="214.58587646484375">
+                     <font>
+                        <Font name="Calibri Bold" size="55.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="cmbSeasonType" onAction="#seasonCBChoose" layoutX="276.0" layoutY="62.0" prefHeight="27.0" prefWidth="241.0" promptText="Season" />
+                  <Text fill="WHITE" layoutX="359.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Season">
+                     <font>
+                        <Font name="Calibri Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Text fill="WHITE" layoutX="404.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MANAGE TEAM">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Text>
+      
+                  <AnchorPane layoutX="42.0" layoutY="350.0" prefHeight="290.0" prefWidth="918.0" styleClass="container">
+                     <children>
+                        <AnchorPane layoutY="1.0" prefHeight="10.0" prefWidth="921.0" styleClass="container-header" AnchorPane.bottomAnchor="276.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
+                        <AnchorPane layoutY="275.0" prefHeight="10.0" prefWidth="950.0" styleClass="container-footer" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Button fx:id="createNewTeamBtn" layoutX="156.0" layoutY="133.0" onAction="#createNewTeam" prefHeight="63.0" prefWidth="210.0" styleClass="button-green" text="Create Now!">
+                           <font>
+                              <Font name="Calibri Bold" size="16.0" />
+                           </font>
+                        </Button>
+                  <Text fill="WHITE" layoutX="556.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREAT A NEW TEAM" textAlignment="CENTER" wrappingWidth="265.9192199707031">
+                     <font>
+                        <Font name="Calibri Bold" size="55.0" />
+                     </font>
+                  </Text>
+                     </children>
+                  </AnchorPane>
+         </children>
+         <fx:define>
+            <RequiredField fx:id="requiredField1" >
+               <srcControl>
+                  <fx:reference source="cmbTeamNameType"/>
+               </srcControl>
+            </RequiredField>
+            <RequiredField fx:id="requiredField2" >
+               <srcControl>
+                  <fx:reference source="cmbSeasonType"/>
+               </srcControl>
+            </RequiredField>
+         </fx:define>
+         <ErrorLabel layoutX="120.0" layoutY="150.0" message="Please select a team"
+                     styleClass="first-error">
+            <validator>
+               <fx:reference source="requiredField1"/>
+            </validator>
+         </ErrorLabel>
+         <ErrorLabel layoutX="380.0" layoutY="150.0" message="Please select a season"
+                     styleClass="first-error">
+            <validator>
+               <fx:reference source="requiredField2"/>
+            </validator>
+         </ErrorLabel>
+      </AnchorPane>
+   </top>
+</BorderPane>

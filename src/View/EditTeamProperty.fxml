@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import Controllers.RequiredField?>
+<?import Controllers.ErrorLabel?>
+<?import javafx.scene.layout.Pane?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EditTeamPropertyController">
+    <Label layoutX="10.0" layoutY="30.0" styleClass="labelNormal " text="Please choose the team property you want to edit his details" />
+    <Label layoutX="10.0" layoutY="50.0" styleClass="labelNormal " text="Enter the correct user name for editing user information." />
+    <Label layoutX="10.0" layoutY="70.0" styleClass="labelNormal " text="Enter the correct field name for editing field information." />
+
+    <Button fx:id="coach" layoutX="40.0" layoutY="100" prefWidth="150" onAction="#editCoach" text="Coach" />
+    <Button fx:id="teamManager" onAction="#editTM" layoutX="230.0" layoutY="100" prefWidth="150" text="Team Manager"/>
+    <Button fx:id="player" onAction="#editPlayer" layoutX="420.0" layoutY="100" prefWidth="150" text="Player"  />
+    <Button fx:id="field" onAction="#editField" layoutX="610.0" prefWidth="150" layoutY="100" text="Field"/>
+
+    <!--coach-->
+    <ChoiceBox fx:id="coachUserNameCB" layoutX="60.0" layoutY="150.0" prefHeight="31.0" prefWidth="110.0" visible="false"/>
+    <TextField fx:id="coachFirstName" layoutX="60.0" layoutY="190.0" prefHeight="31.0" prefWidth="110.0" promptText="first name" visible="false" />
+    <TextField fx:id="coachLastName" layoutX="60.0" layoutY="230.0" prefHeight="31.0" prefWidth="110.0" promptText="last name" visible="false" />
+    <ChoiceBox fx:id="ETrainingCB" layoutX="60.0" layoutY="270.0" prefWidth="110.0" visible="false">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="CDiploma" />
+                <String fx:value="UEFAA" />
+                <String fx:value="UEFAB" />
+                <String fx:value="UEFAPro" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+    <ChoiceBox fx:id="ECoachRoleCB" layoutX="60.0" layoutY="310.0" prefWidth="110.0" visible="false" accessibleText="Coach Role">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="GoalkeeperCoach" />
+                <String fx:value="HeadCoach" />
+                <String fx:value="AssistantCoach" />
+                <String fx:value="YouthCoach" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+    <Button fx:id="saveCoach" onAction="#saveCoach" layoutX="60" layoutY="350" prefWidth="110.0" text="Save" visible="false" />
+
+
+    <!--team manager-->
+    <ChoiceBox fx:id="teamManagerUserNameCB" layoutX="250.0" layoutY="150.0" prefHeight="31.0" prefWidth="110.0"  visible="false"/>
+    <TextField fx:id="teamManagerFirstName" layoutX="250.0" layoutY="190.0" prefHeight="31.0" prefWidth="110.0" promptText="first name" visible="false" />
+    <TextField fx:id="teamManagerLastName" layoutX="250.0" layoutY="230.0" prefHeight="31.0" prefWidth="110.0" promptText="last name" visible="false" />
+    <Button fx:id="saveTM" layoutX="250" onAction="#saveTM" layoutY="270" prefWidth="110.0" text="Save" visible="false" />
+
+    <!--Player-->
+    <ChoiceBox fx:id="playerUserNameCB" layoutX="440.0" layoutY="150.0" prefHeight="31.0" prefWidth="110.0"  visible="false"/>
+    <TextField fx:id="playerFirstName" layoutX="440.0" layoutY="190.0" prefHeight="31.0" prefWidth="110.0" promptText="first name" visible="false" />
+    <TextField fx:id="playerLastName" layoutX="440.0" layoutY="230.0" prefHeight="31.0" prefWidth="110.0" promptText="last name" visible="false" />
+    <ChoiceBox fx:id="EPlayerRoleCB" layoutX="440.0" layoutY="270.0" prefWidth="110.0" visible="false">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="GoalKeeper" />
+                <String fx:value="Defender" />
+                <String fx:value="Forward" />
+                <String fx:value="Midfielder" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+    <Button fx:id="savePlayer" onAction="#savePlayer" layoutX="440" layoutY="310" prefWidth="110.0" text="Save" visible="false" />
+
+    <!--Field-->
+    <ChoiceBox fx:id="fieldNameCB" layoutX="630.0" layoutY="150.0" prefHeight="31.0" prefWidth="110.0" visible="false"/>
+    <TextField fx:id="fieldCity" layoutX="630.0" layoutY="190.0" prefHeight="31.0" prefWidth="110.0" promptText="city" visible="false" />
+    <TextField fx:id="fieldCapacity" layoutX="630.0" layoutY="230.0" prefHeight="31.0" prefWidth="110.0" promptText="capacity" visible="false" />
+    <Button fx:id="saveField" onAction="#saveField" layoutX="630" layoutY="270" prefWidth="110.0" text="Save" visible="false" />
+
+
+
+    <fx:define>
+        <RequiredField fx:id="requiredField1" >
+            <srcControl>
+                <fx:reference source="coachUserNameCB"/>
+            </srcControl>
+        </RequiredField>
+        <RequiredField fx:id="requiredField2" >
+            <srcControl>
+                <fx:reference source="teamManagerUserNameCB"/>
+            </srcControl>
+        </RequiredField>
+        <RequiredField fx:id="requiredField3" >
+            <srcControl>
+                <fx:reference source="playerUserNameCB"/>
+            </srcControl>
+        </RequiredField>
+        <RequiredField fx:id="requiredField4" >
+            <srcControl>
+                <fx:reference source="fieldNameCB"/>
+            </srcControl>
+        </RequiredField>
+    </fx:define>
+    <ErrorLabel fx:id="e1" layoutX="172" layoutY="150" message="enter user name" styleClass="first-error">
+        <validator>
+            <fx:reference source="requiredField1"/>
+        </validator>
+    </ErrorLabel>
+    <ErrorLabel fx:id="e2" layoutX="362" layoutY="150" message="enter user name" styleClass="first-error">
+        <validator>
+            <fx:reference source="requiredField2"/>
+        </validator>
+    </ErrorLabel>
+    <ErrorLabel fx:id="e3" layoutX="552" layoutY="150" message="enter user name" styleClass="first-error">
+        <validator>
+            <fx:reference source="requiredField3"/>
+        </validator>
+    </ErrorLabel>
+    <ErrorLabel fx:id="e4" layoutX="742.0" layoutY="150.0" message="enter field name" styleClass="first-error">
+        <validator>
+            <fx:reference source="requiredField4"/>
+        </validator>
+    </ErrorLabel>
+
+
+</AnchorPane>
